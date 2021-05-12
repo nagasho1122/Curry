@@ -9,7 +9,8 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     val people = arrayOf<String>("ビックマム","カイドウ","黒ヒゲ","シャンクス")
-    val food = arrayOf<String>("かれー","みそしる","ちゃーはん","えびちり")
+    val food = arrayOf<String>("かれー","みそしる","ちゃーはん","えびちり","ステーキ","親子丼","わたあめ")
+    val result = arrayOf<String>("よそえました^^","よそえませんでした")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,14 +20,17 @@ class MainActivity : AppCompatActivity() {
         val randomName = Random()
         val index = randomName.nextInt(4)
         val name = people[index]
+        val resultnum = Random().nextInt(2)
         nameText.text = name + "に"
 
-        foodText.text = food[Random().nextInt(4)] + "を"
+        foodText.text = food[Random().nextInt(7)] + "を"
 
-        if (Random().nextInt(100)<50){
-            verbText.text="よそえました^^"
+        verbText.text = result[resultnum]
+        if (resultnum==1){
+            verbText.setTextSize(24.0f)
         }else{
-            verbText.text="よそえませんでした"
+            verbText.setTextSize(18.0f)
         }
+
     }
 }
