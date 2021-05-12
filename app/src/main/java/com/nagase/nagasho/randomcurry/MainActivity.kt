@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     val people = arrayOf<String>("ビックマム","カイドウ","黒ヒゲ","シャンクス")
     val food = arrayOf<String>("かれー","みそしる","ちゃーはん","えびちり","ステーキ","親子丼","わたあめ")
     val result = arrayOf<String>("よそえました^^","よそえませんでした")
+    val resultsize = arrayOf(18.0f,24.0f)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,11 +27,7 @@ class MainActivity : AppCompatActivity() {
         foodText.text = food[Random().nextInt(7)] + "を"
 
         verbText.text = result[resultnum]
-        if (resultnum==1){
-            verbText.setTextSize(24.0f)
-        }else{
-            verbText.setTextSize(18.0f)
-        }
+        verbText.setTextSize(resultsize[resultnum])
 
     }
 }
